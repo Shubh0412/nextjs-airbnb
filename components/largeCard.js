@@ -4,7 +4,7 @@ function LargeCard({ img, title, description, buttonText }) {
   return (
     <section className="relative py-16 cursor-pointer">
       <div className="relative h-96">
-        <img className="rounded-2xl object-fill h-96 w-full " src={img} />
+        <img className="rounded-2xl object-cover h-96 w-full " src={img} />
       </div>
 
       <div className="absolute top-28 left-12 ">

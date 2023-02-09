@@ -6,6 +6,7 @@ import { Cards, Collection } from '../typings'
 import SmallCard from '../components/smallCard'
 import MediumCard from '../components/mediumCard'
 import LargeCard from '../components/largeCard'
+import Footer from '../components/footer'
 
 interface Props {
   exploreData: Collection[]
@@ -63,6 +64,8 @@ const Home = ({ exploreData, cardsData }: Props) => {
           buttonText="Get Inspired"
         />
       </main>
+
+      <Footer />
     </div>
   )
 }
