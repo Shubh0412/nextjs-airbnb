@@ -16,3 +16,16 @@ export interface Collection {
     location: string
     distance: string
 }
+
+export interface Results {
+    _id: string,
+    img:Image
+    location:string
+    title:string
+    description: string
+    star: number
+    price:string
+    total: string
+    long:number
+    lat:number
+}
