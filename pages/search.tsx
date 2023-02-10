@@ -3,8 +3,14 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import Footer from '../components/footer'
 import Header from '../components/header'
+import InfoCard from '../components/infoCard'
+import { Results } from '../typings'
 
-function Search() {
+interface Props {
+  searchResults: Results[]
+}
+
+function Search({ searchResults }: Props) {
   const router = useRouter()
   const { location, startDate, endDate, noOfGuests } = router.query
 
@@ -40,6 +46,23 @@ function Search() {
             <p className="button"> Rooms & Beds</p>
             <p className="button"> More filters</p>
           </div>
+
+          <div className="flex flex-col">
+            {searchResults.map(
+              ({ img, location, title, description, star, price, total }) => (
+                <InfoCard
+                  key={title}
+                  img={img}
+                  location={location}
+                  title={title}
+                  description={description}
+                  star={star}
+                  price={price}
+                  total={total}
+                />
+              )
+            )}
+          </div>
         </section>
       </main>
 
@@ -49,3 +72,15 @@ function Search() {
 }
 
 export default Search
+
+export async function getServerSideProps() {
+  const searchResults = await fetch('https://www.jsonkeeper.com/b/5NPS').then(
+    res => res.json()
+  )
+
+  return {
+    props: {
+      searchResults
+    }
+  }
+}
