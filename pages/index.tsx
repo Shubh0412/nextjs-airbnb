@@ -61,7 +61,9 @@ const Home = ({ exploreData, cardsData }: Props) => {
 
         {/* 2nd section */}
         <section>
-          <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
+          <h2 className="text-4xl font-semibold py-8 pb-5">Live Anywhere</h2>
+          <h5 className="text-gray-300 pb-0">Scroll Right</h5>
+
           <div
             className="flex space-x-3 overflow-scroll scrollbar-hide
           p-3 -ml-3"

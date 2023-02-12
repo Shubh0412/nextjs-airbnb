@@ -6,15 +6,15 @@ const squareVariants = {
   visible: {
     opacity: 1,
     scale: 1,
-    x: 0,
+    y: 0,
     transition: {
-      duration: 2,
+      duration: 1.5,
       delay: 0.5
     }
   },
   hidden: {
-    x: 100,
-    opacity: 0.5
+    y: 100,
+    opacity: 0
   }
 }
 
