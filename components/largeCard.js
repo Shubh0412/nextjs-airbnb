@@ -1,8 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+const squareVariants = {
+  visible: {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    transition: {
+      duration: 2,
+      delay: 0.5
+    }
+  },
+  hidden: {
+    x: 100,
+    opacity: 0.5
+  }
+}
 
 function LargeCard({ img, title, description, buttonText }) {
+  const controls = useAnimation()
+  const [ref, inView] = useInView()
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible')
+    } else {
+      controls.start('hidden')
+    }
+  }, [controls, inView])
+
   return (
-    <section className="relative py-16 cursor-pointer">
+    <motion.section
+      className="relative py-16 cursor-pointer"
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={squareVariants}
+    >
       <div className="relative h-96">
         <img className="rounded-2xl object-cover h-96 w-full " src={img} />
       </div>
@@ -23,7 +58,7 @@ function LargeCard({ img, title, description, buttonText }) {
           {buttonText}
         </button>
       </div>
-    </section>
+    </motion.section>
   )
 }
 
