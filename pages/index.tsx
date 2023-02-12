@@ -7,6 +7,7 @@ import SmallCard from '../components/smallCard'
 import MediumCard from '../components/mediumCard'
 import LargeCard from '../components/largeCard'
 import Footer from '../components/footer'
+import { motion } from 'framer-motion'
 
 interface Props {
   exploreData: Collection[]
@@ -17,7 +18,7 @@ const Home = ({ exploreData, cardsData }: Props) => {
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Airbnb Clone</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -26,7 +27,21 @@ const Home = ({ exploreData, cardsData }: Props) => {
 
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         {/* 1st section */}
-        <section className="pt-6">
+        <motion.section
+          className="pt-6"
+          initial={{
+            opacity: 1,
+            scale: 0
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.8
+          }}
+        >
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
 
           <div
@@ -42,7 +57,7 @@ const Home = ({ exploreData, cardsData }: Props) => {
               />
             ))}
           </div>
-        </section>
+        </motion.section>
 
         {/* 2nd section */}
         <section>
