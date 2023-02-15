@@ -1,4 +1,4 @@
-# Add Footer ASAP
+# Correct the animation on homepage
 
 # Next.js + Tailwind CSS Example
 
