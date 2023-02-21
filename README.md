@@ -1,4 +1,4 @@
-# Correct the animation on homepage
+# Correct animation on homepage
 
 # Next.js + Tailwind CSS Example
 
